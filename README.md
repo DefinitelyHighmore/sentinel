@@ -1,5 +1,6 @@
 # sentinel
 A Library for watching containers using a LootTable trick
+Download from releases and drop the ``.zip`` file directly into your datapacks folder
 
 >[!Warning]
 >May cause visual flickering of Items inside container.
