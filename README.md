@@ -14,10 +14,12 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 ### ``#senti:open``
 * Run by the player when they open a watched container
 * Entity may be targetted by the player using the following selector:
+* Entity's Items are available at ``senti:api new``. You can make changes to this and use the Set Items function below to edit contents open initial opening.
 
 ```mcfunction
 execute as @e[type=senti:container,tag=senti.container,predicate=senti:target] ...
 ```
+
 
 ### ``#senti:changed``
 * Run by the watched container that has had a change in contents
