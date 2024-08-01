@@ -39,7 +39,7 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 * Player's name available during this function call at storage ``senti:api player.name``
 * Player's UUID (int form) available during this function call at storage ``senti:api player.uuid``
 
-### ``#senti:relog``
+### ``#senti:player/relog``
 * Run by players, who logged out while having a container open, upon joining back.
 
 ## Functions
