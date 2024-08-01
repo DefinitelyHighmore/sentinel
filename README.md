@@ -29,7 +29,6 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 
 ### ``#senti:viewer/closed``
 * Run by the player who closed a watched container
-* Container can be targetted with the same predicate again
 
 
 ### ``#senti:fully_closed``
