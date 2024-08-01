@@ -31,7 +31,7 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 * Run by the player who closed a watched container
 
 
-### ``#senti:fully_closed``
+### ``#senti:container/closed``
 * Run by the container after all players have closed it.
 
 ### ``#senti:log_out``
