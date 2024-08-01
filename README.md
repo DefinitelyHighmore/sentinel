@@ -11,59 +11,50 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 
 ## Function Tags
 
-### ``#senti:open``
+### ``#senti:viewer/open``
 * Run by the player when they open a watched container
-* Entity may be targetted by the player using the following selector:
-
-```mcfunction
-execute as @e[type=senti:container,tag=senti.container,predicate=senti:target] ...
-```
-
-* Entity's Items are available at ``senti:api new``. You can make changes to this and use the Set Items function further below to edit contents open initial opening.
+* The UUID of opened container (in string form) is present in storage ``senti:api uuid`` during this function tag call, use a macro to reference it.
 
 
+### ``#senti:container/changed``
+* Run by open watched containers that have a change in their contents
+* Contents of previous tick in storage ``senti:api old``
+* All players with the watched container open may be targetted by the tag ``senti.viewer`` during this function call
+
+### ``#senti:container/tick``
+* Run by all Open watched containers every tick
+* All players with the watched container open may be targetted by the tag ``senti.viewer`` during this function call.
+* This runs after ``#senti:container/changed`` in case a change happens.
 
 
-### ``#senti:changed``
-* Run by the watched container that has had a change in contents
-* Old contents in storage ``senti:api old``
-* New contents in storage ``senti:api new``
-* All players with the watched container open may be targetted by the following selector:
-
-```mcfunction
-execute as @a[predicate=senti:target] ...
-```
-
-### ``#senti:closed``
+### ``#senti:viewer/closed``
 * Run by the player who closed a watched container
 * Container can be targetted with the same predicate again
 
 
 ### ``#senti:fully_closed``
 * Run by the container after all players have closed it.
-* Players can be targetted with the same predicate
 
+### ``#senti:log_out``
+* Run by the server when it detects a player logging out while having a container open.
+* Player's name available during this function call at storage ``senti:api player.name``
+* Player's UUID (int form) available during this function call at storage ``senti:api player.uuid``
 
+### ``#senti:relog``
+* Run by players, who logged out while having a container open, upon joining back.
 
 ## Functions
 
-### Initialize a container
+### Start Watching a container
 Executing as the container, run the function below
 ```mcfunction
-execute as <container> run function senti:api/watch
+execute as <container> run function senti:start
 ```
 
-### Set Items in a container
->[!Important]
->***DO NOT*** directly edit items in the container, use this function
-```mcfunction
-# This should be invoked inside a function called by this pack's function tags, it will target the currently selected container.
-# Input: data modify storage senti:api Items set value []
-function senti:api/items
-```
-
-### Stop watching a container
+### Stop Watching a container
 Executing as the watched container, run the function below
 ```mcfunction
-execute as <container> run function senti:api/stop_watching
+execute as <container> run function senti:stop
 ```
+> [!Important]
+> Please use the stop watching function when you want to get rid of a container, so that it's ID can be recycled.
