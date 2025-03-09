@@ -5,6 +5,9 @@ Download from releases and drop the ``.zip`` file directly into your datapacks f
 >[!Warning]
 >May cause visual flickering of Items inside container.
 
+>[!Warning]
+>As of update 1.21.2, scrolling inside a bundle with >=2 types of items in it, which is inside a watched container, can cause the server to crash.
+
 >[!Important]
 >* This datapack works for ``chest_minecart`` and ``hopper_minecart``
 >* Pack can watch upto 65535 containers at once.
