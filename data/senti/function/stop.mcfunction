@@ -1,3 +1,4 @@
+execute unless entity @s[tag=senti.watched] run return 0
 tag @s remove senti.b0_0
 tag @s remove senti.b1_0
 tag @s remove senti.b2_0
